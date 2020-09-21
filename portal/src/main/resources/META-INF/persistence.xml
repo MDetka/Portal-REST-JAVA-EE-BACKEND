@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+    <persistence-unit name="PU" transaction-type="JTA">
+         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <jta-data-source>baza</jta-data-source>
+        <class>model.Person</class>
+        <class>model.Appearance</class>
+        <class>model.Lifestyle</class>
+        <class>model.Education</class>
+        <class>model.Account</class>
+        <class>model.Preferences</class>
+        <class>model.Portaluser</class>
+        <class>model.Photo</class>
+        <class>model.Friendship</class>
+        <class>model.Message</class>
+
+
+        <properties>
+            <property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+            <property name="hibernate.connection.username" value="baza"/>
+            <property name="hibernate.connection.password" value="1234"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
+            <property name="hibernate.hql.bulk_id_strategy" value="org.hibernate.hql.spi.id.inline.InlineIdsInClauseBulkIdStrategy"/>
+            <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform"/>
+            <property name="show_sql" value="true"/>
+            <property name="format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update" />									<!-- Create creates new db each time, update adds to existing -->
+
+        </properties>
+
+    </persistence-unit>
+</persistence>
